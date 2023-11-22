@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <section>
+            <div class="container">
+                <div class="mainBox d-flex flex-column justify-content-center">
+                    <h1>Tic Tac Toe</h1>
+                    <p>First Player starts as <b>Player X</b> And Second Player as <b>Player 0</b></p>
+                    <div class="box d-flex flex-column  row">
+                        <!-- <div class="d-flex"> -->
+                        <div class="innerBox d-flex align-item-center justify-content-center" id="box1"></div>
+                        <div class="innerBox d-flex align-item-center justify-content-center" id="box2"></div>
+                        <div class="innerBox d-flex align-item-center justify-content-center" id="box3"></div>
+                        <!-- </div> -->
+                        <!-- <div class="d-flex"> -->
+                        <div class="innerBox d-flex align-item-center justify-content-center" id="box4"></div>
+                        <div class="innerBox d-flex align-item-center justify-content-center" id="box5"></div>
+                        <div class="innerBox d-flex align-item-center justify-content-center" id="box6"></div>
+                        <!-- </div> -->
+                        <!-- <div class="d-flex"> -->
+                        <div class="innerBox d-flex align-item-center justify-content-center" id="box7"></div>
+                        <div class="innerBox d-flex align-item-center justify-content-center" id="box8"></div>
+                        <div class="innerBox d-flex align-item-center justify-content-center" id="box9"></div>
+                        <!-- </div> -->
+                        <div class="wonBox">Won box</div>
+                    </div>
+                    <button class="resetButton" onclick="resetData()">Reset</button>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+<script>
+    // --------------------variable declaration---------------------------------
+    var click = Array.from(document.querySelectorAll('.innerBox'));
+    var wonBox = document.querySelector('.wonBox');
+    var chek = "O";
+    var count = 0;
+
+    click.forEach((element) => {
+        element.addEventListener('click', () => {
+            // --------------------Writing X and O---------------------------------
+            if (chek == "X") {
+                if(element.innerHTML == '')
+                {
+                    element.innerHTML = "O";
+                    chek = "O"
+                    count++
+                }
+                else 
+                {
+                    element.innerHTML == element.innerHTML;
+                }
+            }
+            else {
+                if(element.innerHTML == '')
+                {
+                    element.innerHTML = "X";
+                    chek = "X"
+                    count++
+                }
+                else 
+                {
+                    element.innerHTML == element.innerHTML;
+                }
+            }
+            // --------------------chek column and row---------------------------------
+            if ((click[0].innerHTML == "X" && click[1].innerHTML == "X" && click[2].innerHTML == "X") || (click[0].innerHTML == "O" && click[1].innerHTML == "O" && click[2].innerHTML == "O")) {
+                won();
+            }
+            else if ((click[3].innerHTML == "X" && click[4].innerHTML == "X" && click[5].innerHTML == "X") || (click[3].innerHTML == "O" && click[4].innerHTML == "O" && click[5].innerHTML == "O")) {
+                won();
+            }
+            else if ((click[6].innerHTML == "X" && click[7].innerHTML == "X" && click[8].innerHTML == "X") || (click[6].innerHTML == "O" && click[7].innerHTML == "O" && click[8].innerHTML == "O")) {
+                won();
+            }
+
+            else if ((click[0].innerHTML == "X" && click[3].innerHTML == "X" && click[6].innerHTML == "X") || (click[0].innerHTML == "O" && click[3].innerHTML == "O" && click[6].innerHTML == "O")) {
+                won();
+            }
+            else if ((click[1].innerHTML == "X" && click[4].innerHTML == "X" && click[7].innerHTML == "X") || (click[1].innerHTML == "O" && click[4].innerHTML == "O" && click[7].innerHTML == "O")) {
+                won();
+            }
+            else if ((click[2].innerHTML == "X" && click[5].innerHTML == "X" && click[8].innerHTML == "X") || (click[2].innerHTML == "O" && click[5].innerHTML == "O" && click[8].innerHTML == "O")) {
+                won();
+            }
+
+            else if ((click[0].innerHTML == "X" && click[4].innerHTML == "X" && click[8].innerHTML == "X") || (click[0].innerHTML == "O" && click[4].innerHTML == "O" && click[8].innerHTML == "O")) {
+                won();
+            }
+            else if ((click[2].innerHTML == "X" && click[4].innerHTML == "X" && click[6].innerHTML == "X") || (click[2].innerHTML == "O" && click[4].innerHTML == "O" && click[6].innerHTML == "O")) {
+                won();
+            }
+            // -------------------no won----------------------------------
+            if (count == 9) {
+                chek = "tain"
+               won()
+            }
+            // -------------------Won----------------------------------
+            function won() {
+                wonBox.style.display = "block"
+                if (chek == "O") {
+                    wonBox.innerHTML = "Player O is Won";
+                    console.log("o is won")
+                }
+                else if(chek == "X"){
+                    wonBox.innerHTML = "Player X is Won";
+                    console.log("x is won")
+                }
+                else{
+                    wonBox.innerHTML = "Game is tay";
+                    console.log("game is tay")
+                }
+            }
+        })
+    })
+    // -------------------Reset----------------------------------
+    function resetData() {
+        click.forEach((element) => {
+            element.innerHTML = "";
+        })
+        chek = "O"
+        count = 0
+        wonBox.style.display = "none"
+    }
+</script>
+</html>

@@ -1,0 +1,92 @@
+:root{
+    --theme-color :rgb(255, 0, 0);
+    --button-color:#4e6472;
+    --white-color:white;
+    --light-color: #eaeaea;
+    --dark-color:black;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Josefin Sans', sans-serif;
+}
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.d-flex {
+    display: flex;
+}
+.row {
+    flex-wrap: wrap;
+}
+.flex-column {
+    flex-direction: column;
+}
+.justify-content-center {
+    justify-content: center;
+}
+/* section */
+.mainBox{
+    place-items: center;
+    height: 100vh;
+    margin: auto;
+    box-shadow: 0 0 0 0 black;
+}
+h1,p{
+    margin-bottom: 20px;
+}
+p{
+    color: var(--theme-color);
+}
+.box{
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+.wonBox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    background-color: rgba(255, 255, 255, 0.796);
+    font-size: 25px;
+    border: 2px solid var(--theme-color);
+    border-radius: 10px;
+    padding: 20px 40px;
+    display: none;
+}
+.innerBox{
+    width: 33%;
+    height: 33%;
+    color: var(--theme-color);
+    font-size: 40px;
+    align-items: center;
+}
+#box5{
+    border: 2px solid var(--dark-color);
+}
+#box2 , #box8{
+    border-block: 2px solid var(--dark-color);
+}
+#box4 , #box6{
+    border-inline: 2px solid var(--dark-color);
+}
+.resetButton{
+    padding: 10px 40px;
+    background-color: transparent;
+    border: 2px solid var(--theme-color);
+    margin-top: 20px;
+    border-radius: 10px;
+}
+.resetButton:focus{
+    background-color: rgba(0, 0, 0, 0.601);
+    color: var(--white-color);
+    border-color: var(--dark-color);
+}
